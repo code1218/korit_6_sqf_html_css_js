@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-box">
+    </div>
+
+    <script>
+        const addText = document.createTextNode("추가");
+        const addButton = document.createElement("button");
+        addButton.appendChild(addText);
+
+        const mainBox = document.querySelector(".main-box");
+        mainBox.appendChild(addButton);
+        mainBox.innerHTML += `<button>추가2</button>`;
+        console.log(mainBox);
+        mainBox.removeChild(mainBox.querySelector("button"));
+
+    </script>
+</body>
+</html>

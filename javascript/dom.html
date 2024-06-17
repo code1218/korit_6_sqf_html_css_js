@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-box">
+        <div id="input1">
+            <input type="text">
+        </div>
+        <div id="input2">
+            <input type="text">
+        </div>
+    </div>
+    <div>
+        <button onclick="handleButtonClick(event);">확인</button>
+    </div>
+    <script>
+        const bodyList = document.getElementsByTagName("body");
+        const body = bodyList[0];
+        const divList = document.getElementsByTagName("div");
+        const mainBoxList = body.getElementsByClassName("main-box");
+        const input1 = mainBoxList[0]
+                        .getElementsByTagName("div")[0]
+                        .getElementsByTagName("input")[0];
+        const input1_1 = document.getElementsByTagName("input")[0];
+        const [ input1_1_1 ] = document.getElementById("input1").getElementsByTagName("input");
+
+        console.log(bodyList);
+        console.log({body});
+        console.log({mainBox: divList[0]});
+        console.log({mainBox: mainBoxList[0]});
+        console.log(input1_1_1);
+
+        //////////////////////////////////////////////////////////
+        // <<< QuerySelector >>>
+
+        const input1_1_1_1 = document.querySelector("body #input1 > input");
+        console.log(input1_1_1_1)
+        const inputList = document.querySelectorAll("input");
+        console.log(inputList);
+        const input1_1_1_1_1 = document.querySelector("input");
+
+        const button = document.querySelector("button");
+
+        console.log(button.getAttribute("onclick"));
+        console.log(button.setAttribute("onclick", "alert('test');"));
+        console.log(button.onclick);
+
+        button.onclick = (e) => {
+            console.log(e);
+            const [ input_1, input_2 ] = document.querySelectorAll("input");
+            
+            alert(`name: ${input_1.value}\nage: ${input_2.value}`);
+        }
+
+    </script>
+</body>
+</html>
